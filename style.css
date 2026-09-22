@@ -407,11 +407,10 @@ header {
   font-size: 13px;
   color: var(--text-muted);
   margin-bottom: 14px;
-  flex: 1;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  max-height: 38px;
+  line-height: 19px;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .product-footer {
