@@ -136,10 +136,18 @@ function renderProducts() {
   productsGrid.innerHTML = sorted.map(p => {
     const icon = categoryIcons[p.category] || '📦';
     const price = parseFloat(p.price).toFixed(2);
+    const rating = p.rating || 4.8;
+    const imgHtml = p.image_url
+      ? `<img src="${p.image_url}" alt="${p.name}" class="product-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="product-fallback-icon" style="display:none;">${icon}</span>`
+      : `<span class="product-fallback-icon">${icon}</span>`;
+
     return `
       <div class="product-card">
         <span class="card-badge">${p.category}</span>
-        <div class="product-visual">${icon}</div>
+        <span class="card-rating">★ ${rating}</span>
+        <div class="product-visual">
+          ${imgHtml}
+        </div>
         <h3 class="product-name">${p.name}</h3>
         <p class="product-desc">${p.description || 'High performance tech device verified with Azure Load Testing.'}</p>
         <div class="product-footer">
