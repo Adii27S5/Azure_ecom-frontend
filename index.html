@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AzureTech Store | Cloud-Native E-Commerce</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-wrap">
+      <a href="#" class="brand">
+        <div class="logo-icon">☁</div>
+        <div>
+          <span class="brand-text">AzureTech Store</span>
+          <span class="brand-tag">Project 24CC3046-P056</span>
+        </div>
+      </a>
+
+      <div class="search-container">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search laptops, smartphones, SSDs, monitors...">
+      </div>
+
+      <div class="nav-actions">
+        <div class="backend-indicator" id="backendStatusPill" title="Click to view Azure Telemetry & Capacity Test">
+          <div class="pulse-dot" id="pulseDot"></div>
+          <span id="backendStatusText">Checking Backend...</span>
+        </div>
+
+        <button class="cart-btn" id="openCartBtn">
+          🛒 Cart
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <div class="hero-banner">
+      <div class="hero-content">
+        <h1>Cloud-Native High Performance Gear</h1>
+        <p>Enterprise hardware built for demanding developers and power users. Verified under real-time Azure Load Testing with sub-100ms response times.</p>
+        <div class="hero-stats">
+          <div class="stat-pill"><strong id="heroTotalProducts">500+</strong> Products</div>
+          <div class="stat-pill"><strong id="heroTotalOrders">1,000+</strong> Orders Placed</div>
+          <div class="stat-pill"><strong>S1 Tier</strong> Autoscale 1-4 Instances</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filters & Sorting Bar -->
+  <div class="controls-bar">
+    <div class="category-chips" id="categoryChips">
+      <button class="chip active" data-category="">All Categories</button>
+      <button class="chip" data-category="Laptops">Laptops</button>
+      <button class="chip" data-category="Smartphones">Smartphones</button>
+      <button class="chip" data-category="Monitors">Monitors</button>
+      <button class="chip" data-category="Audio">Audio</button>
+      <button class="chip" data-category="Accessories">Accessories</button>
+      <button class="chip" data-category="Gaming">Gaming</button>
+      <button class="chip" data-category="Storage">Storage</button>
+    </div>
+
+    <div>
+      <select class="sort-select" id="sortSelect">
+        <option value="featured">Sort: Featured</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Product Catalog Grid -->
+  <main class="products-section">
+    <div class="products-grid" id="productsGrid">
+      <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-muted);">
+        Loading products from Azure backend...
+      </div>
+    </div>
+  </main>
+
+  <!-- Cart Drawer -->
+  <div class="overlay" id="overlay"></div>
+
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Your Shopping Cart</h3>
+      <button class="close-btn" id="closeCartBtn">&times;</button>
+    </div>
+
+    <div class="cart-items" id="cartItems">
+      <div style="text-align: center; color: var(--text-muted); margin-top: 40px;">
+        Your cart is empty. Add products from the catalog!
+      </div>
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-summary-line">
+        <span>Subtotal</span>
+        <span id="subtotalVal">$0.00</span>
+      </div>
+      <div class="cart-summary-line">
+        <span>Estimated Tax (5%)</span>
+        <span id="taxVal">$0.00</span>
+      </div>
+      <div class="cart-summary-line cart-total">
+        <span>Total</span>
+        <span id="totalVal">$0.00</span>
+      </div>
+      <button class="checkout-btn" id="checkoutBtn">Proceed to Checkout (POST /api/orders)</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>Azure Capacity Study & Load Testing Hackathon Demo | Project ID: 24CC3046-P056</p>
+    <p style="margin-top: 4px; font-size: 11px;">Powered by Microsoft Azure App Service, Application Insights, Azure Database for PostgreSQL & Azure Load Testing.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
