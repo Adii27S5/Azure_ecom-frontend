@@ -9,8 +9,11 @@
  * - GET /api/heavy-operation
  */
 
-// Determine API Base URL
-const API_BASE = window.location.port === '8080' ? '' : 'http://localhost:8080';
+// Live Azure App Service API Base URL
+const AZURE_APP_URL = 'https://app-capacity-study-363acfoagthui.azurewebsites.net';
+const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+  ? (window.location.port === '8080' ? '' : 'http://localhost:8080')
+  : (window.location.hostname.includes('azurewebsites.net') ? '' : AZURE_APP_URL);
 
 // State
 let products = [];
